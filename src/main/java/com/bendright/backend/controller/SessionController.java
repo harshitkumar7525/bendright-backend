@@ -24,7 +24,7 @@ public class SessionController {
     @PostMapping
     public ResponseEntity<?> createSession(@RequestBody SessionRequest req, Authentication auth) {
         String email = auth.getName();
-        User user = userRepository.findByEmail(email).orElseThrow();
+        User user = userRepository.findByEmailIgnoreCase(email).orElseThrow();
         var s = sessionService.createSession(user, req.status(), req.date(), req.asana());
         return ResponseEntity.ok(s);
     }

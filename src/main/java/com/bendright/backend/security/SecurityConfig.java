@@ -72,8 +72,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         List<String> allowed = new ArrayList<>();
-        // allow http://localhost:5160 .. 5173
-        IntStream.rangeClosed(5173, 5180).forEach(p -> allowed.add("http://localhost:" + p));
+    // allow http://localhost:5173 .. 5180
+    IntStream.rangeClosed(5173, 5180).forEach(p -> allowed.add("http://localhost:" + p));
         configuration.setAllowedOrigins(allowed);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));

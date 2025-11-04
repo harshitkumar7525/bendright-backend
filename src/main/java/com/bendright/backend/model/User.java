@@ -18,12 +18,16 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(name = "user_name")
+    private String userName;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Session> sessions = new HashSet<>();
 
     public User() {}
 
-    public User(String email, String password) {
+    public User(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }
@@ -34,6 +38,8 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
     public Set<Session> getSessions() { return sessions; }
     public void setSessions(Set<Session> sessions) { this.sessions = sessions; }
 

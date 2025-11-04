@@ -18,6 +18,7 @@ Endpoints
 - Purpose: create a new user account
 - Request JSON body:
   {
+    "userName": "Alice",
     "email": "user@example.com",
     "password": "plaintext-password"
   }
@@ -31,6 +32,7 @@ POST /api/auth/signup
 Content-Type: application/json
 
 {
+  "userName": "Alice",
   "email": "alice@example.com",
   "password": "s3cret123"
 }
