@@ -7,6 +7,8 @@ import com.bendright.backend.repository.SessionRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+import com.bendright.backend.model.User;
 
 @Service
 public class SessionService {
@@ -22,5 +24,9 @@ public class SessionService {
         LocalDate date = LocalDate.parse(dateStr);
         Session s = new Session(status, date, asana, user);
         return sessionRepository.save(s);
+    }
+
+    public List<Session> listSessionsForUser(User user) {
+        return sessionRepository.findByUser(user);
     }
 }
